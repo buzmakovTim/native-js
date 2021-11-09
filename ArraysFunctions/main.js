@@ -92,3 +92,22 @@ console.log(ages);
 const ageSum = ages.reduce((total, age) => total + age, 0);
 console.log(ageSum);
 
+
+// find method
+let arrayNumbers = []
+let arrayNumbers2 = []
+
+//console.log(arrayNumbers)
+//console.log(arrayNumbers.filter(n => n === 5));
+
+for(let i = 0; i < 10000000; i++){
+
+    let randomN = Math.floor(Math.random(1)*100);
+
+    arrayNumbers.push(randomN)
+    arrayNumbers2.push(randomN)
+}
+
+console.log(arrayNumbers)
+
+
