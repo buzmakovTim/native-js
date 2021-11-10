@@ -100,7 +100,7 @@ let arrayNumbers2 = []
 //console.log(arrayNumbers)
 //console.log(arrayNumbers.filter(n => n === 5));
 
-for(let i = 0; i < 10000000; i++){
+for(let i = 0; i < 10; i++){
 
     let randomN = Math.floor(Math.random(1)*100);
 
@@ -109,5 +109,16 @@ for(let i = 0; i < 10000000; i++){
 }
 
 console.log(arrayNumbers)
+
+
+// shift
+//
+// Remove first element
+let arrayColors = ['Yellow', 'Blue', 'Red', 'Black'];
+
+console.log(arrayColors);
+// After unshifting
+arrayColors.shift()
+console.log(arrayColors);
 
 
