@@ -65,15 +65,21 @@ console.log(eightysCompanies);
 
 
 // Sort ages
-
+// Using MAP
 
 const unsortedAges = ages.map((age) => age);
+
+// Sort
 ages.sort((a, b) => (a > b ? 1 : -1));
 
 console.log(unsortedAges);
 //console.log(sortedAges);
 
 console.log(ages);
+
+// Sort function
+//
+
 
 
 //
