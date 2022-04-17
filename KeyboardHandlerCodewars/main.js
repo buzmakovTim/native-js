@@ -69,6 +69,30 @@ function handler(key, isCaps = false, isShift = false) {
   // Testing
   console.log(handler('t', false, true))
   console.log(handler(4, false, true))
-  console.log(handler('4', false, true))
+  console.log(handler("'", false, false))
   
 
+  let str = 'hello'
+
+  //let index = 4
+  //str = str.substring(0, index) + str[index].toUpperCase() + str.substring(index+1)
+  let copy = str.split('')
+
+  copy[1] = copy[1].toUpperCase()
+  
+  console.log(copy.join(''))
+
+
+  function wave(str){
+    let newArr = [];
+    for (let i = 0; i < str.length; i++) {
+      let copy = str.split('');
+      if(copy[i] !== ' ') {
+      copy[i] = copy[i].toUpperCase()
+      newArr.push(copy.join(''))
+      }
+    }
+    return newArr
+  }
+
+  //console.log(wave('hello'))
