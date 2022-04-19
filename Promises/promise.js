@@ -1,5 +1,9 @@
 
-// Promises
+
+// ==========================================================================
+// ==========================================================================
+// ==========================================================================
+// Promises 
 
 let p = new Promise((resolve, reject) => {
 
@@ -14,9 +18,9 @@ let p = new Promise((resolve, reject) => {
 
 
 p.then((message) => {
-    console.log('This is in the then '+ message);
+    //console.log('This is in the then '+ message);
 }).catch((message) => {
-    console.error('This is in catch '+ message);
+    //console.error('This is in catch '+ message);
 })
 
 
@@ -43,9 +47,9 @@ function watchTheVideoCallBack(callBack, errorCallBack) {
 } 
 
 watchTheVideoCallBack((message) => {
-    console.log('Susess ' + message);
+    //console.log('Susess ' + message);
 }, (error) => { 
-    console.log(error.name + " " + error.message);
+    //console.log(error.name + " " + error.message);
 })
 console.log('')
 
@@ -73,9 +77,9 @@ function watchTheVideoPromise() {
     })    
 } 
 watchTheVideoPromise().then((message) => {
-    console.log('Susess ' + message);
+    //console.log('Susess ' + message);
 }).catch((error) => { 
-    console.log(error.name + " " + error.message);
+    //console.log(error.name + " " + error.message);
 })
 console.log('')
 
@@ -100,9 +104,9 @@ Promise.all([
     recordVideoTwo,
     recordVideoThree
 ]).then((messages) => {
-    console.log(messages);
+    //console.log(messages);
 }).catch((message) => {
-    console.log(message);
+    //console.log(message);
 }) 
 
 // Will wait till first is completed 
@@ -111,8 +115,85 @@ Promise.race([
     recordVideoTwo,
     recordVideoThree
 ]).then((message) => {
-    console.log(message);
+    //console.log(message);
 }).catch((message) => {
-    console.log(message);
+    //console.log(message);
 }) 
 
+
+// ==========================================================================
+// ==========================================================================
+// ==========================================================================
+// Async Await
+
+
+function makeRequest(location) {
+    return new Promise((resolve, reject) => {
+        console.log(`Make a request to ${location}`)
+        if(location === 'Google'){
+            resolve('Google says Hi!')
+        } else {
+            reject('We can only talk to Google!')
+        }
+    })
+}
+
+function processRequest(response){
+    return new Promise((resolve, reject) => {
+        console.log('Processing response')
+        resolve(`Extra information + ${response}`)
+    })
+}
+
+
+// makeRequest('Google').then(response => {
+//     console.log('Response Received')
+//     return processRequest(response)
+// }).then(processResponse => {
+//     console.log(processResponse)
+// }).catch(err => {
+//     console.log(err)
+// })
+
+
+// Now we do the same using Async Await
+async function doWork(){
+    try{
+        const response = await makeRequest('Google');
+        console.log('Response Received')
+        const processedResponse = await processRequest(response);
+        console.log(processedResponse)
+    }
+    catch(err){
+        console.log(err);
+    }
+    
+}
+
+//doWork();
+
+
+// Will log out
+//
+// Making Request to Google
+// Response Received
+// Processing Response
+// Extra information + Google says hi!
+
+
+
+//
+//
+// Practice
+//let timeout;
+
+function myFunction() {
+    let timeout = setTimeout(alertFunc, 2000);
+    
+}
+
+function alertFunc() {
+  alert("Hello!");
+}
+
+myFunction();
